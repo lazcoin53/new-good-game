@@ -3,14 +3,30 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Viewport meta tag for mobile responsiveness -->
     <title>Unity WebGL Player | Fast Peak Egg</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
     <script src="playDeckBridge.js"></script> <!-- PlayDeck Bridge Script Added -->
+    <style>
+        /* Add responsive styles */
+        #unity-container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        #unity-canvas {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
 </head>
 <body>
     <div id="unity-container" class="unity-desktop">
-        <canvas id="unity-canvas" width="960" height="600"></canvas>
+        <canvas id="unity-canvas"></canvas>
         <div id="unity-loading-bar">
             <div id="unity-logo"></div>
             <div id="unity-progress-bar-empty">
@@ -63,8 +79,6 @@
             showBanner: unityShowBanner,
         };
 
-        canvas.style.width = "960px";
-        canvas.style.height = "600px";
         canvas.style.background = "url('" + buildUrl + "/webgl diamond hunt pole good 2.jpg') center / cover";
         loadingBar.style.display = "block";
 
