@@ -63,14 +63,8 @@
             showBanner: unityShowBanner,
         };
 
-        if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-            container.className = "unity-mobile";
-            config.devicePixelRatio = 1;
-            unityShowBanner('WebGL builds are not supported on mobile devices.');
-        } else {
-            canvas.style.width = "960px";
-            canvas.style.height = "600px";
-        }
+        canvas.style.width = "960px";
+        canvas.style.height = "600px";
         canvas.style.background = "url('" + buildUrl + "/webgl diamond hunt pole good 2.jpg') center / cover";
         loadingBar.style.display = "block";
 
@@ -95,4 +89,3 @@
     </script>
 </body>
 </html>
-
