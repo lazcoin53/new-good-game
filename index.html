@@ -32,6 +32,7 @@
         var fullscreenButton = document.querySelector("#unity-fullscreen-button");
         var warningBanner = document.querySelector("#unity-warning");
 
+        // Function to display temporary or permanent warnings and errors
         function unityShowBanner(msg, type) {
             function updateBannerVisibility() {
                 warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
@@ -39,12 +40,9 @@
             var div = document.createElement('div');
             div.innerHTML = msg;
             warningBanner.appendChild(div);
-            if (type === 'error') {
-                div.style.background = 'red';
-                div.style.padding = '10px';
-            } else if (type === 'warning') {
-                div.style.background = 'yellow';
-                div.style.padding = '10px';
+            if (type === 'error') div.style = 'background: red; padding: 10px;';
+            else if (type === 'warning') {
+                div.style = 'background: yellow; padding: 10px;';
                 setTimeout(function() {
                     warningBanner.removeChild(div);
                     updateBannerVisibility();
@@ -99,3 +97,4 @@
     </script>
 </body>
 </html>
+
