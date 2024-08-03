@@ -82,13 +82,17 @@
             const playdeckBridgeInstance = playDeckBridge(); // Create PlayDeck Bridge Instance
             createUnityInstance(canvas, config, (progress) => {
                 progressBarFull.style.width = 100 * progress + "%";
-                playdeckBridgeInstance?.setLoadingProgress(progress * 100); // Send loading progress to PlayDeck
+                if (playdeckBridgeInstance) {
+                    playdeckBridgeInstance.setLoadingProgress(progress * 100); // Send loading progress to PlayDeck
+                }
             }).then((unityInstance) => {
                 loadingBar.style.display = "none";
                 fullscreenButton.onclick = () => {
                     unityInstance.SetFullscreen(1);
                 };
-                playdeckBridgeInstance?.init(unityInstance); // Initialize PlayDeck Bridge
+                if (playdeckBridgeInstance) {
+                    playdeckBridgeInstance.init(unityInstance); // Initialize PlayDeck Bridge
+                }
             }).catch((message) => {
                 alert(message);
             });
@@ -97,4 +101,5 @@
     </script>
 </body>
 </html>
+
 
